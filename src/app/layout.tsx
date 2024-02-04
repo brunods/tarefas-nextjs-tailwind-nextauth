@@ -21,9 +21,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <Header />
           {children}
-          <Note
-            loggedIn={false}
-          />
+          <Note/>
         </NextAuthProvider>
       </body>
     </html>
