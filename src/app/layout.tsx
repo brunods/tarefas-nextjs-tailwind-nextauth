@@ -16,8 +16,8 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
-      <body className="bg-[#0F0F0F] flex flex-col w-full min-h-[100vh] items-center justify-center">
+    <html lang="pt-br">
+      <body className="bg-[#0F0F0F] flex flex-col w-full">
         <NextAuthProvider>
           <Header />
           {children}

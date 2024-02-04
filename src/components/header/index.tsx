@@ -26,7 +26,7 @@ export default function Header() {
     const [tagLogged, setTagLogged] = useState(true);
 
     return (
-        <div className="w-full fixed top-0 h-20 px-[30px] flex items-center justify-between md:px-[100px]">
+        <div className="w-full px-[30px] py-[30px] mb-10 flex items-center justify-between md:px-[100px]">
             <Link href="/">
                 <h1 className="text-[30px] font-bold text-white">Tarefas<span className="text-red-500">+</span></h1>
             </Link>
