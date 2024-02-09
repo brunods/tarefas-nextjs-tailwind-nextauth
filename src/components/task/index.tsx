@@ -1,15 +1,17 @@
-import { FaRegTrashAlt } from "react-icons/fa";
+import Link from "next/link";
+import { FaTrash, FaShare } from "react-icons/fa";
 
 interface TaskProps {
     id: string;
-    description: string;
+    task: string;
     isPublic: boolean;
     createdAt: string;
     updatedAt: string;
 }
 
 export default function Task({
-    description,
+    id,
+    task,
     isPublic,
     createdAt,
     updatedAt
@@ -20,17 +22,19 @@ export default function Task({
                 <div className="items-start">
 
                     {isPublic ?
-                        <p className="w-fit bg-gray-700 text-white text-[12px] py-1 px-1 rounded-md mb-3">
-                            Pública
-                        </p>
+                        <Link href={`/task/${id}`}>
+                            <p className="w-fit bg-gray-700 text-white text-[12px] py-1 px-1 rounded-md mb-3">
+                                Pública <FaShare className="inline-block ml-2" size={12} />
+                            </p>
+                        </Link>
                         : null}
                     <p className="text-white text-justify">
-                        {description}
+                        {task}
                     </p>
                 </div>
-                <FaRegTrashAlt
+                <FaTrash
                     className="ml-[50px] cursor-pointer text-gray-600 hover:text-gray-700 transition-all duration-300 ease-in-out"
-                    size={50}
+                    size={20}
                 />
             </div>
         </div>
