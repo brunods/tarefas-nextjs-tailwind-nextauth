@@ -39,7 +39,6 @@ export default function Header() {
                     onMouseOver={() => setTagLogged(false)}
                     onMouseOut={() => setTagLogged(true)}
                 >
-                    {/* <p>Olá, <span className="font-bold text-red-500">{name}</span></p> */}
                     {tagLogged ? showTagLogged(true) : showTagLogged(false)}
                     <img className="w-[30px] ml-2 rounded-full" src={session?.user?.image ?? 'default-image-url'} />
                 </button>

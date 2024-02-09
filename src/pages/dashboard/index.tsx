@@ -28,6 +28,7 @@ import {
 interface HomeProps {
     user: {
         email: string;
+        name: string;
     }
 }
 
@@ -52,6 +53,7 @@ export default function Dashboard({ user }: HomeProps) {
 
             onSnapshot(q, (snapshot) => {
                 let list = [] as TaskProps[];
+                //console.log(list);
 
                 snapshot.forEach((doc) => {
                     list.push({
@@ -89,13 +91,14 @@ export default function Dashboard({ user }: HomeProps) {
                 isPublic: publicTask,
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                user: user.email
+                user: user.email,
+                name: user.name
             });
 
             setInputText("");
             setPublicTask(false);
 
-            alert("Tarefa registrada com sucesso!");
+            //alert("Tarefa registrada com sucesso!");
 
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
@@ -168,6 +171,7 @@ export default function Dashboard({ user }: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     const session = await getSession({ req });
+    
 
     if (!session) {
         return {
@@ -182,6 +186,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
         props: {
             user: {
                 email: session?.user?.email,
+                name: session?.user?.name,
             }
         }
     };
